@@ -74,3 +74,7 @@ async def process_videos_handler(update: Update, context: ContextTypes.DEFAULT_T
         await query.edit_message_text("❌ حدث خطأ! ابدأ من جديد /video")
         return ConversationHandler.END
     platf
+async def cancel_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    context.user_data.clear()
+    await update.message.reply_text("❌ تم الإلغاء\n\n/video للبدء من جديد")
+    return ConversationHandler.END
